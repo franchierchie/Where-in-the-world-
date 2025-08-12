@@ -2,7 +2,7 @@ import { IoSearch } from 'react-icons/io5';
 
 export const Filters = () => {
   return (
-    <div className="pt-10 pb-20 flex items-center justify-between">
+    <div className="pb-20 flex items-center justify-between">
       <label
         htmlFor="search-bar"
         className="flex items-center gap-5 bg-slate-700/50 shadow-xs lg:w-min lg:min-w-xl px-10 py-5 rounded-md"

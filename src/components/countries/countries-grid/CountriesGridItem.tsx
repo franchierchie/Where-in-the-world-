@@ -4,13 +4,13 @@ import Image from 'next/image';
 export const CountriesGridItem = () => {
   return (
     <Link
-      href="/"
+      href="/country/CHE"
       className="w-full lg:w-90 rounded-lg overflow-hidden bg-slate-700/50 shadow-xs"
     >
       <div className="w-full aspect-[3/2] relative">
         <Image
           src="https://flagcdn.com/ch.svg"
-          alt="Switzerland national flag"
+          alt="The flag of Switzerland is square shaped. It features a white Swiss cross centered on a red field."
           className="object-cover rounded"
           fill
           priority
@@ -23,15 +23,15 @@ export const CountriesGridItem = () => {
         <div>
           <p className="text-lg">
             <span className="font-bold pr-2">Population:</span>
-            <span className="text-gray-400">{ (99999999).toLocaleString() }</span>
+            <span className="text-gray-400">{ (8654622).toLocaleString() }</span>
           </p>
           <p className="text-lg">
             <span className="font-bold pr-2">Region:</span>
-            <span className="text-gray-400">Continent</span>
+            <span className="text-gray-400">Europe</span>
           </p>
           <p className="text-lg">
             <span className="font-bold pr-2">Capital:</span>
-            <span className="text-gray-400">Capital city</span>
+            <span className="text-gray-400">Bern</span>
           </p>
         </div>
       </div>

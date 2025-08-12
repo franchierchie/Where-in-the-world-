@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { nunitoSans } from "@/config/fonts";
 import "./globals.css";
 
+import { Header } from "@/components";
+
 export const metadata: Metadata = {
   title: "Where in the world?",
   description: "Explore information about countries around the world using this responsive Next.js app. Features include a dark/light theme toggle, search and filter by region, and detailed country pages powered by the REST Countries API.",
@@ -17,7 +19,11 @@ export default function RootLayout({
       <body
         className={`${nunitoSans.variable} antialiased`}
       >
-        {children}
+        <Header />
+        
+        <div className="p-10 sm:p-20">
+          {children}
+        </div>
       </body>
     </html>
   );
