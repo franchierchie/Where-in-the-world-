@@ -1,10 +1,13 @@
+import { getCountries } from '@/actions';
 import { CountriesGrid, Filters } from '@/components';
 
-export default function Home() {
+export default async function Home() {
+  const countries = await getCountries();
+
   return (
     <>
       <Filters />
-      <CountriesGrid />
+      <CountriesGrid countries={ countries } />
     </>
   );
 }

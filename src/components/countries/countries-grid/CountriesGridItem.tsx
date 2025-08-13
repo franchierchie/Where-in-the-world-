@@ -1,16 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const CountriesGridItem = () => {
+import { Country } from '@/interfaces';
+
+interface Props {
+  country: Country;
+}
+
+export const CountriesGridItem = ({ country }: Props) => {
+  const countryFlag = ( !country.flags.svg ) ? country.flags.png : country.flags.svg;
+
   return (
     <Link
-      href="/country/CHE"
+      href={`/country/${ country.cca3 }`}
       className="w-full lg:w-90 rounded-lg overflow-hidden bg-slate-700/50 shadow-xs"
     >
-      <div className="w-full aspect-[3/2] relative">
+      <div className="w-full h-auto aspect-[3/2] relative">
         <Image
-          src="https://flagcdn.com/ch.svg"
-          alt="The flag of Switzerland is square shaped. It features a white Swiss cross centered on a red field."
+          src={ countryFlag }
+          alt={ country.flags.alt }
           className="object-cover rounded"
           fill
           priority
@@ -18,20 +26,20 @@ export const CountriesGridItem = () => {
       </div>
 
       <div className="p-10 pb-15">
-        <h2 className="font-bold text-2xl mb-5">Country Name</h2>
+        <h2 className="font-bold text-2xl mb-5">{ country.name.common }</h2>
         
         <div>
           <p className="text-lg">
             <span className="font-bold pr-2">Population:</span>
-            <span className="text-gray-400">{ (8654622).toLocaleString() }</span>
+            <span className="text-gray-400">{ ( country.population ).toLocaleString() }</span>
           </p>
           <p className="text-lg">
             <span className="font-bold pr-2">Region:</span>
-            <span className="text-gray-400">Europe</span>
+            <span className="text-gray-400">{ country.region }</span>
           </p>
           <p className="text-lg">
             <span className="font-bold pr-2">Capital:</span>
-            <span className="text-gray-400">Bern</span>
+            <span className="text-gray-400">{ country.capital }</span>
           </p>
         </div>
       </div>
