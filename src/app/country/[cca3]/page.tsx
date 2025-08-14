@@ -1,4 +1,4 @@
-
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,27 +10,25 @@ interface Props {
   params: Promise<{ cca3: string }>;
 }
 
-/*
 async function generateMetadata(
   { params }: Props,
   // parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = (await params).slug
+  const cca3 = (await params).cca3
 
   // fetch data
-  const product = await getProductBySlug( slug );
+  const country = await getCountryByCode( cca3 );
 
   return {
-    title: product?.title ?? 'Product Not Found',
-    description: product?.description ?? '',
+    title: country.name.common ?? 'Country Not Found',
+    description: country.region ?? '',
     openGraph: {
-      title: product?.title ?? 'Product Not Found',
-      description: product?.description ?? '',
-      images: [`/products/${ product?.images[1] }`],
+      title: country.name.common ?? 'Country Not Found',
+      description: country.region ?? '',
+      images: country.flags.png,
     }
   }
 }
-*/
 
 
 export default async function CountryPage({ params }: Props) {
