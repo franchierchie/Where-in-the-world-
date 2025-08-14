@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,27 +8,6 @@ import { getBorderCountries, getCountryByCode } from "@/actions";
 interface Props {
   params: Promise<{ cca3: string }>;
 }
-
-async function generateMetadata(
-  { params }: Props,
-  // parent: ResolvingMetadata
-): Promise<Metadata> {
-  const cca3 = (await params).cca3
-
-  // fetch data
-  const country = await getCountryByCode( cca3 );
-
-  return {
-    title: country.name.common ?? 'Country Not Found',
-    description: country.region ?? '',
-    openGraph: {
-      title: country.name.common ?? 'Country Not Found',
-      description: country.region ?? '',
-      images: country.flags.png,
-    }
-  }
-}
-
 
 export default async function CountryPage({ params }: Props) {
   const { cca3 } = await params;

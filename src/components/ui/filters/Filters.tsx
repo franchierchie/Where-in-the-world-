@@ -28,7 +28,7 @@ export const Filters = ({ onFilterChange }: Props) => {
     const trimmedInputValue = searchText.toLocaleLowerCase().trim();
     onFilterChange( trimmedInputValue );
     
-  }, [searchText]);
+  }, [searchText, onFilterChange]);
 
   return (
     <div className="pb-20 flex items-center justify-between">

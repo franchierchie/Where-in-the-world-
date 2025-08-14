@@ -47,7 +47,7 @@ export const CountriesGrid = ({ countries, filter }: Props) => {
       setFilteredCountries(countries);
     }
     
-  }, [filter]);
+  }, [filter, countries]);
 
   return (
     <div className="w-full flex flex-wrap justify-center items-center gap-10">
